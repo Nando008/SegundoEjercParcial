@@ -3,6 +3,7 @@ import { ref } from 'vue';
 
 let modulo1= ref('')
 
+
 let turno1 = ref(['CDSABD','ADSASD'])
 let turno2 = ref(['CDSABDUAS'])
 let turno3 = ref(['CGDSADIJ','JSHAD','JSUSDAD'])
@@ -11,13 +12,43 @@ let sizeTurno1 = ref(turno1.value.length)
 let sizeTurno2 = ref(turno2.value.length)
 let sizeTurno3 = ref(turno3.value.length)
 
+let moduloselec = ref()
+
 function recibeMoludo1 (){
+  
+  /*switch(moduloselec.value){
+    case 'modulo 1':
+      turno1.value.push(modulo1.value)
+      sizeTurno1.value +=1
+      break
+    case 'modulo 2':
+      turno2.value.push(modulo1.value)
+      sizeTurno2.value +=1
+      break
+    case 'modulo 3':
+      turno3.value.push(modulo1.value)
+      sizeTurno3.value +=1
+      break
+    default:
+      break
+  }*/
 
-  turno1.value.push(modulo1.value)
-  sizeTurno1.value +=1
+  if(moduloselec.value == 'modulo 1'){
+    turno1.value.push(modulo1.value)
+    sizeTurno1.value +=1
+  }
+
+  if(moduloselec.value == 'modulo 2'){
+    turno2.value.push(modulo1.value)
+    sizeTurno2.value +=1
+  }
+  
+  if(moduloselec.value == 'modulo 3'){
+    turno3.value.push(modulo1.value)
+    sizeTurno3.value +=1
+  }
+  
 }
-
-
 
 </script>
 
@@ -99,15 +130,17 @@ function recibeMoludo1 (){
         <input type="text" v-model="modulo1" class="rounded-lg border-gray-400 border-2 h-10 w-36 font-semibold p-2" placeholder="Código">
 
         <div class="ml-2 mr-2">
-          <select name="" id="" class="rounded-lg border-gray-400 border-2 h-10 font-semibold pl-3 w-36">
-            <option value="">Modulo 1</option>
-            <option value="">Modulo 2</option>
-            <option value="">Modulo 3</option>
+          <select name="hi" id="" v-model="moduloselec" class="rounded-lg border-gray-400 border-2 h-10 font-semibold pl-3 w-36">
+            
+            <option value="modulo 1">modulo 1</option>
+            <option value="modulo 2">modulo 2</option>
+            <option value="modulo 3">modulo 3</option>
+          
           </select>
         </div>
-
-        <button @click="recibeMoludo1" class="rounded-lg bg-purple-600 hover:bg-white hover:text-red-700 text-white h-10 font-semibold w-36 p-1 text-center">Agregar Turno</button>
         
+        <button @click="recibeMoludo1" class="rounded-lg bg-purple-600 hover:bg-white hover:text-red-700 text-white h-10 font-semibold w-36 p-1 text-center">Agregar Turno</button>
+       
       </div>
 
     </div>
