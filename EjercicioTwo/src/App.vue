@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 
-let modulo1= ref()
+let modulo1= ref('')
 
-let turno1 = ref(['CGDSJF','ASDNUASDN',])
+let turno1 = ref(['CDSABD','ADSASD'])
 let turno2 = ref(['CDSABDUAS'])
 let turno3 = ref(['CGDSADIJ','JSHAD','JSUSDAD'])
 
@@ -11,11 +11,10 @@ let sizeTurno1 = ref(turno1.value.length)
 let sizeTurno2 = ref(turno2.value.length)
 let sizeTurno3 = ref(turno3.value.length)
 
-
 function recibeMoludo1 (){
 
-  turno1.value.push(modulo1)
-
+  turno1.value.push(modulo1.value)
+  sizeTurno1.value +=1
 }
 
 
@@ -40,8 +39,8 @@ function recibeMoludo1 (){
 
         <div class="bg-gray-300 rounded-xl rounded-t-none h-auto p-3">
           
-          <div class="bg-white rounded-md py-1 px-4 mb-1" v-for="(i,index) in turno1" :key="index">
-            <h1 class="font-semibold">{{index + 1}} - {{ i }}</h1>
+          <div class="bg-white rounded-md py-1 px-4 mb-1" v-for="(i,index) in turno1" :key="index++">
+            <h1 class="font-semibold">{{index}} - {{ i }}</h1>
           </div>
          
         </div>
@@ -56,8 +55,8 @@ function recibeMoludo1 (){
 
         <div class="bg-gray-300 rounded-xl rounded-t-none h-auto p-3">
           
-          <div class="bg-white rounded-md py-1 px-4 mb-1" v-for="(i,index) in turno2" :key="index">
-            <h1 class="font-semibold">{{index + 1}} - {{ i }}</h1>
+          <div class="bg-white rounded-md py-1 px-4 mb-1" v-for="(i,index) in turno2" :key="index++">
+            <h1 class="font-semibold">{{index}} - {{ i }}</h1>
           </div>
           
         </div>
@@ -71,8 +70,8 @@ function recibeMoludo1 (){
 
         <div class="bg-gray-300 rounded-xl rounded-t-none h-auto p-3">
           
-          <div class="bg-white rounded-md py-1 px-4 mb-1" v-for="(i,index) in turno3" :key="index">
-            <h1 class="font-semibold">{{index + 1}} - {{ i }}</h1>
+          <div class="bg-white rounded-md py-1 px-4 mb-1" v-for="(i,index) in turno3" :key="index++">
+            <h1 class="font-semibold">{{index}} - {{ i }}</h1>
           </div>
           
         </div>
